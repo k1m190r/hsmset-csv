@@ -11,4 +11,8 @@ users,   ,
      , 1 , Alice
      , 2 , Bob
 ```
+is equivalent to:
+```
+HMSET users 1 Alice 2 Bob
+```
 
