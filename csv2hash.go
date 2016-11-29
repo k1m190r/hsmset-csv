@@ -5,7 +5,6 @@ import (
 	"encoding/csv"
 	"flag"
 	"fmt"
-	//	red "github.com/biosckon/redis_protocol"
 	"io"
 	"log"
 	"os"
