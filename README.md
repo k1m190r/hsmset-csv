@@ -1,5 +1,5 @@
 ### Convenience utility
-Loads CSV in the specific form into redis using redis protocol.
+Loads CSV in the specific form into redis hash using redis protocol.
 - using some code from https://github.com/tlehman/redis-mass
 ```
 col1, col2, col3

@@ -8,6 +8,7 @@ import (
 	"io"
 	"log"
 	"os"
+	"strings"
 )
 
 func check(e error) {
@@ -16,8 +17,15 @@ func check(e error) {
 	}
 }
 
-func procRec(rec string) {
-	// build up the redis command and feed it to the red.
+func procRec(rec []string, out io.Writer) {
+	// build up the redis command and feed it to the redis pipe stream.
+	if out == nil {
+		out = os.Stdout
+	}
+	nrec := make([]string, len(rec))
+	for i, s := range rec {
+		nrec[i] = strings.TrimSpace(s)
+	}
 }
 
 func main() {
@@ -44,7 +52,7 @@ func main() {
 				log.Fatal(err)
 			}
 
-			procRec(record)
+			procRec(record, nil)
 		}
 	}
 
