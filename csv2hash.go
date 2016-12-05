@@ -8,6 +8,7 @@ import (
 	"io"
 	"log"
 	"os"
+	"strconv"
 	"strings"
 )
 
@@ -17,14 +18,44 @@ func check(e error) {
 	}
 }
 
+var args = make([]string, 0, 100)
+
+func makeRESP(args []string) (ret string) {
+	grow := []string{"*"}
+	grow = append(grow, strconv.Itoa(len(args)))
+	// TODO grow $len(args[i])args[i]
+	return ret
+}
+
+func newKey(key string, args []string) {
+	switch len(args) {
+	case 0: // args is empty
+	default:
+		makeRESP(args)
+		args = args[0:1] // zero out an array
+		args[0] = key
+	}
+}
+
 func procRec(rec []string, out io.Writer) {
-	// build up the redis command and feed it to the redis pipe stream.
 	if out == nil {
 		out = os.Stdout
 	}
+
+	// trim spaces
 	nrec := make([]string, len(rec))
 	for i, s := range rec {
 		nrec[i] = strings.TrimSpace(s)
+	}
+
+	switch nrec[0] {
+	case "":
+		if (nrec[1] == "") || (nrec[2] == "") {
+			break
+		}
+		args = append(args, nrec[1:3]...)
+	default:
+		newKey(nrec[0], args)
 	}
 }
 
