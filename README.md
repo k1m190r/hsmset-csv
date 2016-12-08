@@ -2,16 +2,16 @@
   
 ### Convenience utility
 Loads CSV in the specific form into redis hash using redis protocol.
-- using some code from https://github.com/tlehman/redis-mass
+Inspiration https://github.com/tlehman/redis-mass
 ```
-col1, col2, col3
-key,  field, value
+col1, col2
+field, value
 
 e.g.
 
-users,   ,
-     , 1 , Alice
-     , 2 , Bob
+File: users.csv
+1, Alice
+2, Bob
 ```
 is equivalent to:
 ```
