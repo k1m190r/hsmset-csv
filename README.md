@@ -36,3 +36,10 @@ hmset-csv users.csv | nc localhost 1111
 ```
 Content of users.csv will be piped to the localhost:1111 hash key 'users'. 'nc' - is netcat
 
+
+### download binary
+  https://github.com/biosckon/hsmset-csv/releases/tag/v1.0
+### install
+  copy to one of directories in your PATH e.g. /usr/local/bin or C:\Windows\
+  
+ 
