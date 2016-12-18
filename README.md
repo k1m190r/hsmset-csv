@@ -29,4 +29,9 @@ Will end up in the key:
 ```
 users:1
 ```
+Example use:
+```
+hmset-csv users.csv | nc localhost 1111
+```
+Content of users.csv will be piped to the localhost:1111. 'nc' - is netcat
 
