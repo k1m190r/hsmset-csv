@@ -33,5 +33,5 @@ Example use:
 ```
 hmset-csv users.csv | nc localhost 1111
 ```
-Content of users.csv will be piped to the localhost:1111. 'nc' - is netcat
+Content of users.csv will be piped to the localhost:1111 hash key 'users'. 'nc' - is netcat
 
