@@ -1,5 +1,3 @@
-# WORK IN PROGRESS
-  
 ### Convenience utility
 Loads CSV in the specific form into redis hash using redis protocol.
 Inspiration https://github.com/tlehman/redis-mass
